@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #F7F1E7;
+  --color-cream: #EFE3D0;
+  --color-sareya-red: #8E2925;
+  --color-burgundy: #641B1B;
+  --color-terracotta: #B95A3C;
+  --color-sareya-dark: #211B17;
+  --color-dark-brown: #291D17;
+  --color-muted-brown: #75695D;
+  --color-gold: #D39A38;
+  --color-muted-green: #59634C;
+  --color-mithila-blue: #365B63;
+
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+:root {
+  --background: #F7F1E7;
+  --foreground: #211B17;
+  --sareya-red: #8E2925;
+  --sareya-cream: #EFE3D0;
+  --sareya-burgundy: #641B1B;
+  --sareya-terracotta: #B95A3C;
+  --sareya-gold: #D39A38;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #F7F1E7;
+  color: #211B17;
+  font-family: var(--font-manrope), sans-serif;
+}
+
+/* Typography Fluid Presets */
+.font-display {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+.text-fluid-hero {
+  font-size: clamp(2.7rem, 6vw, 6rem);
+  line-height: 1.04;
+}
+
+.text-fluid-heading {
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.12;
+}
+
+.text-fluid-subheading {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: 1.25;
+}
+
+.text-fluid-body {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+}
+
+/* Container System */
+.sareya-container {
+  width: min(calc(100% - 32px), 1440px);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .sareya-container {
+    width: min(calc(100% - 64px), 1440px);
+  }
+}
+
+/* Image wrapper rule for no distortion */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Subtle Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F1E7;
+}
+::-webkit-scrollbar-thumb {
+  background: #B95A3C;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8E2925;
+}
